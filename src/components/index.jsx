@@ -17,6 +17,7 @@ class App extends Component{
 
 const RootContainer=styled.div`
   background-color: ${props => props.bg};
+  display: flex;
 `;
 
 export default App;
