@@ -5,12 +5,15 @@ class Navbar extends Component{
 
     render(){
         return(
-            <Container> tes
+            <Container> navbar
             </Container>
         );
     }
 }
 const Container= styled.div`
-    background-color: blue;
+    background-color: green;
+    position: absolute;
+    min-height: 100vh;
+    visibility: hidden;
 `;
 export default Navbar;

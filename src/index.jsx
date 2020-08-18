@@ -1,26 +1,12 @@
 import React from 'react';
 import { render } from 'react-dom';
 import { Provider } from 'react-redux';
-import { ThemeProvider,createGlobalStyle } from 'styled-components';
+import { ThemeProvider } from 'styled-components';
 import App from './components/';
+import theme from './static/tailwind.config';
 import configureStore from './reducer/configureStore';
 import * as serviceWorker from './serviceWorker';
-
-
-const theme = {
-  main: "light"
-};
-
-const GlobalStyle = createGlobalStyle`
-  #app {
-    width: 100%;
-    color: black;
-    min-height: 100vh;
-    position: absolute;
-    top: 0;
-    left: 0;
-  }
-`;
+import {GlobalStyle} from './style';
 
 
 const store= configureStore();
