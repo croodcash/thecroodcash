@@ -1,9 +1,9 @@
 import React, {Component} from 'react';
 import styled from 'styled-components';
 import { connect } from 'react-redux';
-import { switchTheme } from '../reducer/';
-import { ReactComponent as MoonIcon } from '../asset/moon.svg';
-import { ReactComponent as SunIcon } from '../asset/sun.svg';
+import { switchTheme } from '../../reducer';
+import { ReactComponent as MoonIcon } from '../../asset/moon.svg';
+import { ReactComponent as SunIcon } from '../../asset/sun.svg';
 
 class ModeButton extends Component{
     render(){

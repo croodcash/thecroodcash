@@ -34,6 +34,7 @@ class Intro extends React.Component {
   font-weight: bold;
   text-align: center;
   text-transform: uppercase;
+  
   font-family: ${props => props.theme.fonts.mono[4]};
   font-weigth: bold;
   margin-top: ${props => props.theme.margin['2']};

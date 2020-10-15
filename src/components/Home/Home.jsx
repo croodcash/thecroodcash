@@ -1,26 +1,25 @@
 import React,{ Component } from "react";
-import { connect } from 'react-redux';
 import styled,{withTheme} from 'styled-components';
 import Intro from './Intro';
-import ModeButton from '../ModeButton';
+import ModeButton from '../utils/ModeButton';
 import logo from '../../asset/logosh.png';
+import { connect } from 'react-redux';
 import { switchTheme } from '../../reducer';
-import { Element, Link } from 'react-scroll';
+import { Element } from 'react-scroll';
 import routes from '../../static/routes';
+import Menu from '..//utils/Menu';
 
 const NIHAO = "你好!";
 const INTRO = [
-    'Welcome my site',
+    'Welcome to my site',
     'My name is Salim Hartono'
 ];
-
-const HOME = "/";
 
 class Home extends Component{
     render(){
         console.log(this.props);
         return(
-            <Element name={HOME}> 
+            <Element name={routes.HOME.to}> 
                 <Container themeMode={this.props.themeMode}>
                     <Wrapper>
                         <Image src={logo} alt="logo"/>
@@ -28,20 +27,7 @@ class Home extends Component{
                     </Wrapper>
                     <Greetings>{NIHAO}</Greetings>
                     <Intro strings={INTRO}/>
-                    <MenuContainer>
-                        {Object.values(routes).map(route => (
-                            <Link
-                                key={route.to}
-                                to={route.to}
-                                spy
-                                smooth
-                                duration={500}
-                                href={route.to}
-                            >
-                            {route.text}
-                            </Link>
-                        ))}
-                    </MenuContainer>
+                    <Menu isHome={true} themeMode={this.props.themeMode}/>
                 </Container>
             </Element>
         );
@@ -49,7 +35,6 @@ class Home extends Component{
 }
 const Container= styled.div`
     position: relative;
-    font-family: ${props => props.theme.fonts.sans[2]};
     color: ${props => props.themeMode.textColor};
     min-height: 100vh;
     display: flex;
@@ -57,36 +42,6 @@ const Container= styled.div`
     justify-content: center;
     align-item: center;
     width: 100%;
-    a {
-        position: relative;
-        margin: 0.5rem;
-        cursor: pointer;
-        color: ${props => props.themeMode.textColor};
-        text-decoration: none;
-        font-weight: bold;
-    }
-    .active {
-        color: #38c172;
-    }
-    a:before {
-        content:"";
-        border-style: dotted;
-        border-color: #38c172;
-        position: absolute;
-        width: 110%;
-        height: 100%;
-        left:-10%;
-        visibility: hidden;
-        -webkit-transform: scaleX(0);
-        transform: scaleX(0);
-        -webkit-transition: all 0.3s ease-in-out 0s;
-        transition: all 0.3s ease-in-out 0s;
-      }
-    a:hover:before {
-        visibility: visible;
-        -webkit-transform: scaleX(1);
-        transform: scaleX(1);
-    }
 `;
 const Wrapper= styled.div`
     position: relative;
@@ -111,15 +66,6 @@ const Greetings = styled.div`
   @media screen and (max-width: ${props => props.theme.screens.sm}) {
     font-size: ${props => props.theme.textSizes['2xl']};
   }
-`;
-
-const MenuContainer= styled.div`
-    position: relative;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-item: center;
-    width: 100%;
 `;
 
 export default connect(

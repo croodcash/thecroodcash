@@ -1,17 +1,18 @@
 import React, { Component }  from 'react';
 import { connect } from 'react-redux';
 import Home from "./Home/Home";
+import About from "./About/About";
 import Navbar from "./Navbar/Navbar";
 import styled,{withTheme} from 'styled-components';
 import { switchTheme } from '../reducer/';
 
 class App extends Component{
   render(){
-    const { bgColor } = this.props.themeMode;
     return(
-      <RootContainer bg={bgColor}>
+      <RootContainer themeMode={this.props.themeMode}>
         <Navbar/>  
         <Home/>
+        <About/>
       </RootContainer>
     );
   }
@@ -20,7 +21,8 @@ class App extends Component{
 const RootContainer=styled.div`
   -webkit-transition: 1s;
   transition: 1s;
-  background-color: ${props => props.bg};
+  background-color: ${props => props.themeMode.bgColor};
+  font-family: ${props => props.theme.fonts.sans[2]};
   display: flex;
   margin-left: auto;
   margin-right: auto;
