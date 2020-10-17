@@ -4,7 +4,7 @@ import React from "react";
 
 class Intro extends React.Component {
     componentDidMount() {
-        // If you want to pass more options as props, simply add
+      // If you want to pass more options as props, simply add
       // your desired props to this destructuring assignment.
       const { strings } = this.props;
       // You can pass other options here, such as typing speed, back speed, etc.

@@ -17,13 +17,12 @@ const INTRO = [
 
 class Home extends Component{
     render(){
-        console.log(this.props);
         return(
             <Element name={routes.HOME.to}> 
                 <Container themeMode={this.props.themeMode}>
                     <Wrapper>
                         <Image src={logo} alt="logo"/>
-                        <ModeButton/>
+                        <ModeButton isHome={true}/>
                     </Wrapper>
                     <Greetings>{NIHAO}</Greetings>
                     <Intro strings={INTRO}/>

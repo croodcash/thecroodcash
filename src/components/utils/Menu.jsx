@@ -37,19 +37,17 @@ const Container= styled.div`
         color: ${props => props.themeMode.textColor};
         text-decoration: none;
         font-weight: bold;
-        ${props=>!props.isHome ? `width:20%; margin:auto;`:``}
+        ${props=>!props.isHome ? `margin:auto;`:``}
       }
       .active {
           color: #38c172;
       }
       a:before {
           content:"";
-          border-style: dotted;
-          border-color: #38c172;
+          border-bottom: 2px dotted #38c172;
           position: absolute;
           width: 100%;
           height: 100%;
-          left:-10%;
           visibility: hidden;
           -webkit-transform: scaleX(0);
           transform: scaleX(0);

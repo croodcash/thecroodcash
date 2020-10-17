@@ -2,44 +2,73 @@ import React,{ Component } from "react";
 import styled from 'styled-components';
 import Menu from '../utils/Menu';
 import { connect } from 'react-redux';
-import { switchTheme } from '../../reducer';
+import { showNavbar } from '../../reducer';
 import ModeButton from '../utils/ModeButton';
 import logo from '../../asset/logosh.png';
 
+const NAME = "Salim Hartono";
+const TITLE = "Software Engineer - Backend ";
+const COMPANY = "tiket.com"
+
 class Navbar extends Component{
+
     render(){
         return(           
             <Container themeMode={this.props.themeMode}> 
-                <input type="checkbox" id="toogle-menu"/>
+                <Burger  src={logo} onClick={this.props.showNavbar}/>
                 <Wrapper>
                     <Image src={logo} alt="logo"/>
-                    <navbarModeButton/>
+                    <ModeButton isHome={false}/>
+                    <Name>{NAME}</Name>
+                    <Title>
+                        {TITLE}
+                        <div><a href="https://www.tiket.com">{COMPANY}</a></div>
+                    </Title>
                 </Wrapper>
-                <hr/>
+
                 <Menu isHome={false} themeMode={this.props.themeMode}/>
             
             </Container>
         );
     }
 }
+
 const Container= styled.div`
-    background-color: ${props=>props.themeMode.bgColor};
-    border-right:2px solid black;
     position: fixed;
+    border-right: 2px solid #38c172;
     z-index: 10;
-    transition: 1s;
-    -webkit-transition: 1s;
+    transition: 0.3s;
+    left:${props => !props.themeMode.showNavbar ? -25.5 : 0}%;
     min-height: 100vh;
-    min-width: 25%; 
+    width:25%;
     top:0;
-    //visibility: hidden;
 `;
+
+const Name=styled.h3`
+`;
+
+const Title=styled.h4`
+    text-align:center;
+`;
+
+const Burger=styled.img`
+    position: relative;
+    left:100%;
+    cursor: pointer;
+    background-image: url("../../asset/logosh.png");
+    width:15%;
+    height:8vh;
+`;
+
 const Wrapper= styled.div`
     position: relative;
-    display: flex;
+    width:100%;
+    display:flex;
+    flex-direction: column;
     justify-content: center;
-    align-item: center;
+    align-items: center;
 `;
+
 const Image= styled.img`
     max-width: 25%;
     object-fit: scale-down;
@@ -47,12 +76,9 @@ const Image= styled.img`
         max-width: 50%;    
     }
 `; 
-const navbarModeButton = styled(ModeButton)`
-    width: 2.5rem;
-    height: 5rem;
-`;
+
 
 
 export default connect(
-    state =>({themeMode: state}),{ switchTheme }
+    state =>({themeMode: state}),{ showNavbar }
 )(Navbar);

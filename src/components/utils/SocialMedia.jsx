@@ -36,15 +36,15 @@ const Mode= styled.button`
         transition: all 0.3s linear;
         &:first-child {
             transform: 
-                ${props=>props.isHome && props.themeMode.isLightMode ? 'translateY(0)' : 
-                    props.isHome && !props.themeMode.isLightMode ? 'translateY(100px)' :
-                    !props.isHome && props.themeMode.isLightMode ? 'translateX(0)' :
+                ${props=>props.isHome && !props.themeMode.isLightMode ? 'translateY(0)' : 
+                    props.isHome && props.themeMode.isLightMode ? 'translateY(100px)' :
+                    !props.isHome && !props.themeMode.isLightMode ? 'translateX(0)' :
                     'translateX(100px)'};
         }
         &:nth-child(2) {
-            transform: ${props=>props.isHome && props.themeMode.isLightMode ? 'translateY(-100px)' : 
-                            props.isHome && !props.themeMode.isLightMode ? 'translateY(0)' :
-                            !props.isHome && props.themeMode.isLightMode ? 'translateX(-100px)' :
+            transform: ${props=>props.isHome && !props.themeMode.isLightMode ? 'translateY(-100px)' : 
+                            props.isHome && props.themeMode.isLightMode ? 'translateY(0)' :
+                            !props.isHome && !props.themeMode.isLightMode ? 'translateX(-100px)' :
                             'translateX(0)'};
         }
     }

@@ -8,7 +8,6 @@ import Footer from './Footer';
 
 class About extends Component{
     render(){
-        console.log(this.props);
         return(
             <Element name={routes.ABOUT.to}> 
                 <Container themeMode={this.props.themeMode}>

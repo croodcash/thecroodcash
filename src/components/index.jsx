@@ -22,6 +22,7 @@ const RootContainer=styled.div`
   -webkit-transition: 1s;
   transition: 1s;
   background-color: ${props => props.themeMode.bgColor};
+  color: ${props => props.themeMode.textColor};
   font-family: ${props => props.theme.fonts.sans[2]};
   display: flex;
   margin-left: auto;

@@ -5,7 +5,6 @@ import { switchTheme } from '../../reducer';
 
 class Footer extends Component{
     render(){
-        console.log(this.props);
         return(
                 <Container themeMode={this.props.themeMode}>
                     <hr/>  
