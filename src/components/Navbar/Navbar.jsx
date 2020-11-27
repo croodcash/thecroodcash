@@ -15,7 +15,11 @@ class Navbar extends Component{
     render(){
         return(           
             <Container themeMode={this.props.themeMode}> 
-                <Burger  src={logo} onClick={this.props.showNavbar}/>
+                <Burger onClick={this.props.showNavbar} themeMode={this.props.themeMode}>
+                    <BurgerInner1 themeMode={this.props.themeMode}/>
+                    <BurgerInner2 themeMode={this.props.themeMode}/>
+                    <BurgerInner3 themeMode={this.props.themeMode}/>
+                </Burger>
                 <Wrapper>
                     <Image src={logo} alt="logo"/>
                     <ModeButton isHome={false}/>
@@ -38,7 +42,12 @@ const Container= styled.div`
     border-right: 2px solid #38c172;
     z-index: 10;
     transition: 0.3s;
+    background-color: ${props => props.themeMode.bgColor};
     left:${props => !props.themeMode.showNavbar ? -25.5 : 0}%;
+    @media screen and (max-width: ${props => props.theme.screens.sm}) {
+        width:80%;
+        left:${props => !props.themeMode.showNavbar ? -80.5 : 0}%;
+    }
     min-height: 100vh;
     width:25%;
     top:0;
@@ -51,14 +60,43 @@ const Title=styled.h4`
     text-align:center;
 `;
 
-const Burger=styled.img`
+const Burger=styled.div`
     position: relative;
     left:100%;
     cursor: pointer;
-    background-image: url("../../asset/logosh.png");
-    width:15%;
-    height:8vh;
+    height:7.5vh;
+    width: 40px;
+    background-color: ${props => props.themeMode.bgColor};
 `;
+
+const BurgerInner1=styled.div`
+        position: relative;
+        width: 40px;
+        height: 4px;
+        margin:4px 0px;
+        border-radius: 4px;
+        background-color: #38c172;
+        transform:${props => !props.themeMode.showNavbar ? 0: "rotate(45deg) translate(8px, 12px)" };
+`;
+const BurgerInner2=styled.div`
+        position: relative;
+        width: 40px;
+        height: 4px;
+        margin-bottom:4px;
+        border-radius: 4px;
+        background-color: #38c172;
+        display:${props => !props.themeMode.showNavbar ? "block" : "none"};
+`;
+const BurgerInner3=styled.div`
+        position: relative;
+        width: 40px;
+        height: 4px;
+        margin-bottom:4px;
+        border-radius: 4px;
+        background-color: #38c172;
+        transform:${props => !props.themeMode.showNavbar ? 0:"rotate(-45deg) translate(-8px, 0px)" };
+`;
+
 
 const Wrapper= styled.div`
     position: relative;
