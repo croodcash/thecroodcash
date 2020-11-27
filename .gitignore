@@ -5,6 +5,7 @@
 .firebaserc
 .firebase.json
 database.rules.json
+public
 
 # dependencies
 /node_modules
