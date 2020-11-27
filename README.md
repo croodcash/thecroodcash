@@ -4,7 +4,7 @@ This repo contains the code powering [thecroodcash.web.app](https://thecroodcash
 The site is powered by:
 - [Reactjs](https://reactjs.org/)
 - [Redux](https://react-redux.js.org/)
-- [StyledComponents] (https://styled-components.com)
+- [StyledComponents](https://styled-components.com)
 - [Tailwind CSS](https://tailwindcss.com/)
 - [Firebase](https://firebase.google.com/)
 
