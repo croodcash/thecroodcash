@@ -7,6 +7,10 @@ const routes={
     ABOUT:{
         to: "/About",
         text: "About"
+    },
+    CONTACT:{
+        to: "/Contact",
+        text: "Contact"
     }
 };
 

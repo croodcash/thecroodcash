@@ -1,6 +1,6 @@
 import React,{ Component } from "react";
 import styled from 'styled-components';
-import {Link } from 'react-scroll';
+import { Link } from 'react-scroll';
 import routes from '../../static/routes';
 
 class Menu extends Component{
@@ -28,7 +28,7 @@ const Container= styled.div`
     display: flex;
     flex-direction: ${props=>!props.isHome ? `column`:`row`};
     justify-content: center;
-    align-item: center;
+    align-items: center;
     width: 100%;
     a {
         position: relative;
@@ -37,10 +37,6 @@ const Container= styled.div`
         color: ${props => props.themeMode.textColor};
         text-decoration: none;
         font-weight: bold;
-        ${props=>!props.isHome ? `margin:auto;`:``}
-      }
-      .active {
-          color: #38c172;
       }
       a:before {
           content:"";

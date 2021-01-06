@@ -20,7 +20,6 @@ const Container= styled.div`
     color: ${props => props.themeMode.textColor};
     text-align: center;
     width: 100%;
-    
     padding-top:90vh;
 `;
 export default connect(
