@@ -5,10 +5,7 @@ import { connect } from 'react-redux';
 import { showNavbar } from '../../reducer';
 import ModeButton from '../utils/ModeButton';
 import logo from '../../asset/logosh.png';
-
-const NAME = "Salim Hartono";
-const TITLE = "Software Engineer - Backend ";
-const COMPANY = "tiket.com"
+import { NAME, TITLE, COMPANY } from '../../static/data';
 
 class Navbar extends Component{
 
@@ -53,8 +50,7 @@ const Container= styled.div`
     top:0;
 `;
 
-const Name=styled.h3`
-`;
+const Name=styled.h3``;
 
 const Title=styled.h4`
     text-align:center;
@@ -62,11 +58,13 @@ const Title=styled.h4`
 
 const Burger=styled.div`
     position: relative;
-    left:100%;
+    left: 100%;
     cursor: pointer;
-    height:7.5vh;
+    height: 5vh;
     width: 40px;
+    padding: 2px;
     background-color: ${props => props.themeMode.bgColor};
+    transition: 1s;
 `;
 
 const BurgerInner1=styled.div`
