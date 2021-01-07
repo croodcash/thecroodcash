@@ -54,6 +54,12 @@ const Name=styled.h3``;
 
 const Title=styled.h4`
     text-align:center;
+    a{
+        cursor: pointer;
+        color: #528AAE;
+        text-decoration: none;
+        font-weight: bold;
+    }
 `;
 
 const Burger=styled.div`
