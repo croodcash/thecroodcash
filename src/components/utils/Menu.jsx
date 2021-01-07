@@ -6,7 +6,7 @@ import routes from '../../static/routes';
 class Menu extends Component{
     render(){
         return(           
-            <Container isHome={this.props.isHome} themeMode={this.props.themeMode}>
+            <Container isNavbar={this.props.isNavbar} themeMode={this.props.themeMode}>
                 {Object.values(routes).map(route => (
                     <Link
                         key={route.to}
@@ -26,7 +26,7 @@ class Menu extends Component{
 const Container= styled.div`
     position: relative;
     display: flex;
-    flex-direction: ${props=>!props.isHome ? `column`:`row`};
+    flex-direction: ${props=>props.isNavbar ? `column`:`row`};
     justify-content: center;
     align-items: center;
     width: 100%;

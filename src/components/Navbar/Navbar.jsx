@@ -4,6 +4,7 @@ import Menu from '../utils/Menu';
 import { connect } from 'react-redux';
 import { showNavbar } from '../../reducer';
 import ModeButton from '../utils/ModeButton';
+import SocialMedia from '../utils/SocialMedia';
 import logo from '../../asset/logosh.png';
 import { NAME, TITLE, COMPANY } from '../../static/data';
 
@@ -19,16 +20,16 @@ class Navbar extends Component{
                 </Burger>
                 <Wrapper>
                     <Image src={logo} alt="logo"/>
-                    <ModeButton isHome={false}/>
+                    <ModeButton isNavbar={true}/>
                     <Name>{NAME}</Name>
                     <Title>
                         {TITLE}
                         <div><a href="https://www.tiket.com">{COMPANY}</a></div>
                     </Title>
                 </Wrapper>
-
-                <Menu isHome={false} themeMode={this.props.themeMode}/>
-            
+                <Menu isNavbar={true} themeMode={this.props.themeMode}/>
+                <Text>Connect with me</Text>
+                <SocialMedia isNavbar={true} themeMode={this.props.themeMode}/>
             </Container>
         );
     }
@@ -50,20 +51,14 @@ const Container= styled.div`
     top:0;
 `;
 
-const Name=styled.h3``;
-
-const Title=styled.h4`
-    text-align:center;
-`;
-
 const Burger=styled.div`
     position: relative;
     left: 100%;
     cursor: pointer;
     height: 5vh;
     width: 40px;
-    padding: 2px;
-    background-color: ${props => props.themeMode.bgColor};
+    padding-top: 2px;
+    border-left : 2px solid ${props => props.themeMode.bgColor};
     transition: 1s;
 `;
 
@@ -94,7 +89,16 @@ const BurgerInner3=styled.div`
         background-color: #38c172;
         transform:${props => !props.themeMode.showNavbar ? 0:"rotate(-45deg) translate(-8px, 0px)" };
 `;
-
+const Name=styled.h3``;
+const Title=styled.h4`
+    text-align:center;
+    a{
+        cursor: pointer;
+        color: #528AAE;
+        text-decoration: none;
+        font-weight: bold;
+    }
+`;
 
 const Wrapper= styled.div`
     position: relative;
@@ -103,6 +107,7 @@ const Wrapper= styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    border-bottom: 2px solid rgba(56,193,144,0.5);
 `;
 
 const Image= styled.img`
@@ -112,7 +117,10 @@ const Image= styled.img`
         max-width: 50%;    
     }
 `; 
-
+const Text= styled.div`
+    text-align: center;
+    margin-top: 50%;
+`; 
 
 
 export default connect(

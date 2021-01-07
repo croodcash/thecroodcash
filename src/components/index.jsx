@@ -25,11 +25,11 @@ const RootContainer=styled.div`
   transition: 1s;
   background-color: ${props => props.themeMode.bgColor};
   color: ${props => props.themeMode.textColor};
-  font-family: ${props => props.theme.fonts.sans[2]};
+  font-family: ${props => props.theme.fonts.sans[9]};
   display: flex;
   margin-left: auto;
   margin-right: auto;
-  width: 100%;
+  width: 102%;
   position: relative;
   align-item: center;
   min-height: 100vh;
