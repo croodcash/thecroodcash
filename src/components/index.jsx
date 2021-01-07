@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import Home from "./Home/Home";
 import About from "./About/About";
 import Navbar from "./Navbar/Navbar";
+import Contact from "./Contact/Contact";
 import styled,{withTheme} from 'styled-components';
 import { switchTheme } from '../reducer/';
 
@@ -13,6 +14,7 @@ class App extends Component{
         <Navbar/>  
         <Home/>
         <About/>
+        <Contact/>
       </RootContainer>
     );
   }

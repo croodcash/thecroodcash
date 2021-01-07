@@ -7,13 +7,8 @@ import { connect } from 'react-redux';
 import { switchTheme } from '../../reducer';
 import { Element } from 'react-scroll';
 import routes from '../../static/routes';
-import Menu from '..//utils/Menu';
-
-const NIHAO = "你好!";
-const INTRO = [
-    'Welcome to my site',
-    'My name is Salim Hartono'
-];
+import Menu from '../utils/Menu';
+import {NIHAO,INTRO} from '../../static/data';
 
 class Home extends Component{
     render(){
