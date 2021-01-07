@@ -5,6 +5,7 @@ import { switchTheme } from '../../reducer';
 import { Element, Link } from 'react-scroll';
 import routes from '../../static/routes';
 import Footer from "./Footer";
+import SocialMedia from '../utils/SocialMedia';
 
 class Contact extends Component{
     render(){
@@ -19,7 +20,7 @@ class Contact extends Component{
                         
                         </ContainerLeft>
                         <ContainerRight>
-                            
+                            <SocialMedia/>
                         </ContainerRight>
                     </ContainerFill>
                     <Footer/>
@@ -30,7 +31,6 @@ class Contact extends Component{
 }
 const Container= styled.div`
     position: relative;
-    font-family: ${props => props.theme.fonts.sans[2]};
     color: ${props => props.themeMode.textColor};
     min-height: 100vh;
     display: flex;

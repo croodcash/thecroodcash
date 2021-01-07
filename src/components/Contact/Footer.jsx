@@ -9,7 +9,7 @@ class Footer extends Component{
                 <Container themeMode={this.props.themeMode}>
                     <hr/>  
                     {`• Made with ❤️ by `}
-                    <span><a href='https://www.linkedin.com/in/salimhartono/'>Salim Hartono</a></span>
+                    <a href='https://github.com/croodcash/thecroodcash'>Salim Hartono</a>
                     {` @ 2021 | © ALL RIGHTS RESERVED •`}
                 </Container>
         );
@@ -17,7 +17,6 @@ class Footer extends Component{
 }
 const Container= styled.div`
     position: absolute;
-    font-family: ${props => props.theme.fonts.sans[2]};
     color: ${props => props.themeMode.textColor};
     text-align: center;
     font-size: 0.7em;

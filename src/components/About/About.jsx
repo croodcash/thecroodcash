@@ -69,7 +69,6 @@ class About extends Component{
 }
 const Container= styled.div`
     position: relative;
-    font-family: ${props => props.theme.fonts.sans[2]};
     color: ${props => props.themeMode.textColor};
     min-height: 100vh;
     display: flex;
