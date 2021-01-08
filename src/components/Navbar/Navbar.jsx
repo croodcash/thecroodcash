@@ -120,6 +120,9 @@ const Image= styled.img`
 const Text= styled.div`
     text-align: center;
     margin-top: 50%;
+    @media screen and (max-width: ${props => props.theme.screens.sm}) {
+        margin-top: 40%;
+    }
 `; 
 
 
