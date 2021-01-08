@@ -8,6 +8,7 @@
     "@fortawesome/react-fontawesome": "^0.1.11",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
+    "react-icons": "^4.1.0",
     "react-redux": "^7.2.1",
     "react-router-redux": "^4.0.8",
     "react-scripts": "3.4.1",

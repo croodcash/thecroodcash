@@ -9,7 +9,7 @@ class ModeButton extends Component{
     render(){
         return(
             <Mode 
-                isHome={this.props.isHome}
+                isNavbar={this.props.isNavbar}
                 themeMode={this.props.themeMode}
                 onClick={this.props.switchTheme}>
                 <SunIcon/>
@@ -26,25 +26,25 @@ const Mode= styled.button`
     border: 2px solid #38c172;
     border-radius: 25px;
     margin: auto 0;
-    width: ${props=>props.isHome ? '2.5rem' : '3rem'}; 
-    height: ${props=>props.isHome ? '5rem' : '1.5rem'};
+    width: ${props=>!props.isNavbar ? '2.5rem' : '3rem'}; 
+    height: ${props=>!props.isNavbar ? '5rem' : '1.5rem'};
     overflow:hidden;
     background: ${props=>props.themeMode.bgColor};
     svg {
-        width: ${props=>props.isHome ? '100%' : 'auto'}; 
-        height: ${props=>props.isHome ? 'auto' : '50%'};
+        width: ${props=>!props.isNavbar ? '100%' : 'auto'}; 
+        height: ${props=>!props.isNavbar ? 'auto' : '50%'};
         transition: all 0.3s linear;
         &:first-child {
             transform: 
-                ${props=>props.isHome && props.themeMode.isLightMode ? 'translateY(0)' : 
-                    props.isHome && !props.themeMode.isLightMode ? 'translateY(100px)' :
-                    !props.isHome && props.themeMode.isLightMode ? 'translateX(0)' :
+                ${props=>!props.isNavbar && props.themeMode.isLightMode ? 'translateY(0)' : 
+                    !props.isNavbar && !props.themeMode.isLightMode ? 'translateY(100px)' :
+                    props.isNavbar && props.themeMode.isLightMode ? 'translateX(0)' :
                     'translateX(100px)'};
         }
         &:nth-child(2) {
-            transform: ${props=>props.isHome && props.themeMode.isLightMode ? 'translateY(-100px)' : 
-                            props.isHome && !props.themeMode.isLightMode ? 'translateY(0)' :
-                            !props.isHome && props.themeMode.isLightMode ? 'translateX(-100px)' :
+            transform: ${props=>!props.isNavbar && props.themeMode.isLightMode ? 'translateY(-100px)' : 
+                            !props.isNavbar && !props.themeMode.isLightMode ? 'translateY(0)' :
+                            props.isNavbar && props.themeMode.isLightMode ? 'translateX(-100px)' :
                             'translateX(0)'};
         }
     }

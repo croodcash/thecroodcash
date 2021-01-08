@@ -69,7 +69,6 @@ class About extends Component{
 }
 const Container= styled.div`
     position: relative;
-    font-family: ${props => props.theme.fonts.sans[2]};
     color: ${props => props.themeMode.textColor};
     min-height: 100vh;
     display: flex;
@@ -103,17 +102,26 @@ const ContainerFill= styled.div`
 const ContainerLeft= styled.div`
     position: relative;
     height: 100%;
+    width: 40%;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content:center;
-    width: 40%;  
+    @media screen and (max-width: ${props => props.theme.screens.sm}) {
+        width: 100%;
+        height: 35%;   
+    }
 `;
 
 const ImageContainer= styled.div`
     height: 40%;
     width: 45%;
     border: 1em solid #38c172;
+    @media screen and (max-width: ${props => props.theme.screens.sm}) {
+        border: 0.5em solid #38c172;
+        width: 35%;
+        height: 55%;   
+    }
 `;
 const Photo= styled.img`
     position:absolute;
@@ -122,6 +130,11 @@ const Photo= styled.img`
     left: 35%;
     top: 38%;
     box-shadow: 0 0 1em 0 rgba(0, 0, 0, 0.5);
+    @media screen and (max-width: ${props => props.theme.screens.sm}) {
+        top: 30%;
+        width: 35%;
+        height: 55%;   
+    }
 `;  
 
 const ContainerRight= styled.div`
@@ -130,12 +143,19 @@ const ContainerRight= styled.div`
     display: flex;
     flex-direction: column;
     width: 60%;
+    @media screen and (max-width: ${props => props.theme.screens.sm}) {
+        width: 90%;
+        height: 65%;     
+    }
 `;
 
 const Menu = styled.div`    
     width: 80%;
     padding-bottom: 0.5em;
     border-bottom: 2px solid rgba(56,193,144,0.5);
+    @media screen and (max-width: ${props => props.theme.screens.sm}) {
+        width: 100%;
+    }
 `;
 const Item = styled.a`
     padding: 0.5em 1.5em;
@@ -153,6 +173,11 @@ const Segment = styled.div`
     padding: 1em;
     width: 80%;
     line-height: 200%;
+    @media screen and (max-width: ${props => props.theme.screens.sm}) {
+        width: 90%;
+        line-height: 150%; 
+        overflow: auto; 
+    }
 `;
 const Detail = styled.div`
     &.italic{
@@ -161,31 +186,47 @@ const Detail = styled.div`
 `;
 const Lists= styled.ul`
     list-style: none;
+    @media screen and (max-width: ${props => props.theme.screens.sm}) {
+        list-style: "►"; 
+    }
 `;
 const List = styled.li`
     &:before {
         content: "►";
         left: 2em;
         position: absolute;
-        color: rgba(56,193,144,1);
+        color: rgba(56,193,144,1); 
+    }
+    @media screen and (max-width: ${props => props.theme.screens.sm}) {
+        &:before {
+            content: ""; 
+        }
     }
 `;
 const ContentWrap= styled.div`
     display:flex;
     width:100%;
+    @media screen and (max-width: ${props => props.theme.screens.sm}) {
+        width: 90%;
+        display:block;
+    }
 `;
 
 const Institute= styled.a`
-    width:50%;
+    width:60%;
     cursor: pointer;
     color: #528AAE;
     text-decoration: none;
     font-weight: bold;
 `;
-const Period= styled.span`
+const Period= styled.div`
     width:40%;
     text-align:right;
     opacity:0.5;
+    @media screen and (max-width: ${props => props.theme.screens.sm}) {
+        width: 100%;
+        text-align:left;
+    }
 `;
 const ContentTitle= styled.div`
 `;
