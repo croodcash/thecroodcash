@@ -1,9 +1,13 @@
 import tailwindConfig from '../static/tailwind.config';
 import {about} from '../static/data';
 
+//mail configuration that not included to source.
+import {mail} from '../mg';
+
 const DARK_MODE = "DARK_MODE";
 const SHOW = "SHOW";
 const FETCH = "FETCH";
+const SEND = "SEND";
 
 const BG_COLOR= tailwindConfig.colors.white;
 const TEXT_COLOR= tailwindConfig.colors.react;
@@ -15,7 +19,8 @@ const INITIAL_STATE ={
   showNavbar: false,
   active:'summary',
   contentDetail: about.summary.detailSum,
-  contentList:about.summary.detailList
+  contentList:about.summary.detailList,
+  errorMessage:''
 };
 
 export default function reducer (state = INITIAL_STATE, action={}) {
@@ -25,6 +30,8 @@ export default function reducer (state = INITIAL_STATE, action={}) {
     case SHOW:
       return action.payload ;
     case FETCH:
+      return action.payload ;
+    case SEND:
       return action.payload ;
     default:
       return state;
@@ -49,6 +56,13 @@ export function fetchContentData(newData) {
   return {
     type: FETCH,
     payload: newData 
+  };
+};
+
+export function sendEmailData(resultData) {
+  return {
+    type: SEND,
+    payload: resultData 
   };
 };
 
@@ -87,4 +101,11 @@ export const showContent=(item)=>(dispatch,getState)=>{
       state.contentList=about.summary.detailList;
   }
   dispatch(fetchContentData(state));
+};
+
+export const sendMessage=(name,email,message)=>(dispatch,getState)=>{
+  const state = Object.assign({},getState());
+  console.log(name,email,message);
+  state.errorMessage=mail.apiKey;
+  dispatch(sendEmailData(state));
 };

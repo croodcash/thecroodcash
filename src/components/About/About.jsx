@@ -35,7 +35,7 @@ class About extends Component{
                                 </Item>
                             </Menu>
                             <Segment>
-                                {this.props.themeMode.contentList.length===0&&<div>Hi! 😊</div>}
+                                {this.props.themeMode.contentList.length===0&&<div>Hi there <span role="img" aria-label="hi" >👋</span> </div>}
                                 <Detail className={this.props.themeMode.contentList.length!==0 ? 'italic': null}>
                                     {this.props.themeMode.contentDetail}
                                 </Detail>

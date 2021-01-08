@@ -29,7 +29,7 @@ const RootContainer=styled.div`
   display: flex;
   margin-left: auto;
   margin-right: auto;
-  width: 102%;
+  width: 100%;
   position: relative;
   align-item: center;
   min-height: 100vh;
