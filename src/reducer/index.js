@@ -1,8 +1,7 @@
 import tailwindConfig from '../static/tailwind.config';
 import {about} from '../static/data';
-
-//mail configuration that not included to source.
-import {mail} from '../mg';
+import {backend} from '../static/routes';
+import axios from 'axios'
 
 const DARK_MODE = "DARK_MODE";
 const SHOW = "SHOW";
@@ -103,9 +102,30 @@ export const showContent=(item)=>(dispatch,getState)=>{
   dispatch(fetchContentData(state));
 };
 
-export const sendMessage=(name,email,message)=>(dispatch,getState)=>{
+export const sendMessage=({name,email,message})=>(dispatch,getState)=>{
   const state = Object.assign({},getState());
+  const re = /\S+@\S+\.\S+/;
   console.log(name,email,message);
-  state.errorMessage=mail.apiKey;
-  dispatch(sendEmailData(state));
+  if(name.length<3 || !re.test(String(email).toLowerCase()) || message.length<3){
+    state.errorMessage='Invalid Name or Email or Message';
+    return dispatch(sendEmailData(state));
+  }
+  axios.post(backend.sendEmail, {
+    name,
+    email,
+    message
+  }).then(response => {
+    console.log(response);
+    if(response.data.response.id.length>3){
+      state.errorMessage='Success Send Message! Thank you!'
+    }else{
+      state.errorMessage='Fail to Send Message. Please kindly try again later'
+    }
+    dispatch(sendEmailData(state));
+  })
+  .catch(error => {
+    console.log(error);
+    state.errorMessage='Fail to Send Message. Please kindly try again later'
+    dispatch(sendEmailData(state));
+  })
 };

@@ -158,9 +158,9 @@ const Form= styled.form`
 `;
 const Message= styled.div`
     width: 90%;
-    height: 10%;
-    border: 2px solid red;
-    background-color: lightpink;
+    height: 8%;
+    border: 2px solid ${props => props.errorMessage.includes('Success')? 'rgba(56,193,144,1)': 'indianred'};
+    color:${props => props.errorMessage.includes('Success')? 'rgba(56,193,144,1)': 'indianred'};
     text-align:center;
     margin : 1.5%;
 `;
