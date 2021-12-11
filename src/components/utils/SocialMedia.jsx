@@ -8,7 +8,7 @@ class SocialMedia extends Component{
     render(){
         return(
             <Container isNavbar={this.props.isNavbar} themeMode={this.props.themeMode}>
-                <a href="https://github.com/salim-hartono" ><FaGithubSquare/></a>
+                <a href="https://github.com/croodcash" ><FaGithubSquare/></a>
                 <a href="https://www.linkedin.com/in/salimhartono"><FaLinkedin/></a>
                 <a href="https://www.instagram.com/salimhartono_/"><FaInstagramSquare/></a>
                 <a href="https://twitter.com/salimhartono_"><FaTwitterSquare/></a>
