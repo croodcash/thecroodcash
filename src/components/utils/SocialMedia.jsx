@@ -2,52 +2,41 @@ import React, {Component} from 'react';
 import styled from 'styled-components';
 import { connect } from 'react-redux';
 import { switchTheme } from '../../reducer';
-import { ReactComponent as MoonIcon } from '../../asset/moon.svg';
-import { ReactComponent as SunIcon } from '../../asset/sun.svg';
+import { FaGithubSquare, FaFacebookSquare, FaLinkedin, FaTwitterSquare, FaInstagramSquare } from "react-icons/fa";
 
-class ModeButton extends Component{
+class SocialMedia extends Component{
     render(){
         return(
-            <Mode 
-                isHome={this.props.isHome}
-                themeMode={this.props.themeMode}
-                onClick={this.props.switchTheme}>
-                <SunIcon/>
-                <MoonIcon/>
-            </Mode>
+            <Container isNavbar={this.props.isNavbar} themeMode={this.props.themeMode}>
+                <a href="https://github.com/salim-hartono" ><FaGithubSquare/></a>
+                <a href="https://www.linkedin.com/in/salimhartono"><FaLinkedin/></a>
+                <a href="https://www.instagram.com/salimhartono_/"><FaInstagramSquare/></a>
+                <a href="https://twitter.com/salimhartono_"><FaTwitterSquare/></a>
+                <a href="https://www.facebook.com/salim.hartono98"><FaFacebookSquare/></a>
+            </Container>
         );
     }
 }
 
-
-const Mode= styled.button`
-    position :relative;
-    cursor: pointer;
-    border: 2px solid #38c172;
-    border-radius: 25px;
-    margin: auto 0;
-    width: ${props=>props.isHome ? '2.5rem' : '3rem'}; 
-    height: ${props=>props.isHome ? '5rem' : '1.5rem'};
-    overflow:hidden;
-    background: ${props=>props.themeMode.bgColor};
-    svg {
-        width: ${props=>props.isHome ? '100%' : 'auto'}; 
-        height: ${props=>props.isHome ? 'auto' : '50%'};
-        transition: all 0.3s linear;
-        &:first-child {
-            transform: 
-                ${props=>props.isHome && !props.themeMode.isLightMode ? 'translateY(0)' : 
-                    props.isHome && props.themeMode.isLightMode ? 'translateY(100px)' :
-                    !props.isHome && !props.themeMode.isLightMode ? 'translateX(0)' :
-                    'translateX(100px)'};
-        }
-        &:nth-child(2) {
-            transform: ${props=>props.isHome && !props.themeMode.isLightMode ? 'translateY(-100px)' : 
-                            props.isHome && props.themeMode.isLightMode ? 'translateY(0)' :
-                            !props.isHome && !props.themeMode.isLightMode ? 'translateX(-100px)' :
-                            'translateX(0)'};
-        }
-    }
+const Container= styled.div`
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: bottom;
+    width: 100%;
+    font-size: ${props => props.isNavbar? "1.2":"2.5"}em;
+    a {
+        position: relative;
+        margin: 0.5rem;
+        cursor: pointer;
+        color: ${props => props.themeMode.textColor};
+        text-decoration: none;
+        font-weight: bold;
+        opacity: 0.8;
+      }
+      a:hover{
+        color: #528AAE;
+      }
 `;
-
-export default connect(state=>({themeMode:state}),{switchTheme})(ModeButton);
+export default connect(state=>({themeMode:state}),{switchTheme})(SocialMedia);
