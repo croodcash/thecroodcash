@@ -8,13 +8,13 @@ const SHOW = "SHOW";
 const FETCH = "FETCH";
 const SEND = "SEND";
 
-const BG_COLOR= tailwindConfig.colors.white;
-const TEXT_COLOR= tailwindConfig.colors.react;
+const BG_COLOR= tailwindConfig.colors.react;
+const TEXT_COLOR= tailwindConfig.colors.white;
 
 const INITIAL_STATE ={
   bgColor: BG_COLOR,
   textColor: TEXT_COLOR,
-  isLightMode: true,
+  isLightMode: false,
   showNavbar: false,
   active:'summary',
   contentDetail: about.summary.detailSum,

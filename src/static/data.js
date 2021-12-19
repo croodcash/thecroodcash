@@ -1,6 +1,7 @@
 export const NAME = "Salim Hartono";
 export const TITLE = "Software Engineer - Backend ";
-export const COMPANY = "tiket.com";
+export const COMPANY = "Ajaib";
+export const COMPANY_SITE = "https://www.ajaib.co.id";
 export const NIHAO = "你好!";
 export const INTRO = [
     'Welcome to my site',
@@ -27,7 +28,7 @@ export const about = {
                 desc:"GPA: 3.90/4.00 | PPTI 4 BCA Scholarship program"
             },
             {
-                period:"2013-2016",
+                period:"2013 - 2016",
                 link:"http://www.sman8pku.sch.id/",
                 title:"Natural Science",
                 institution:"SMAN 8 Pekanbaru",
@@ -39,9 +40,16 @@ export const about = {
         detailSum:"“I’m a greater believer in luck, and I find the harder I work the more I have of it.” - Thomas Jefferson",
         detailList:[
             {
-                period:"Sep 2020 – Present",
-                link:"https://www.tiket.com",
+                period:"Aug 2021 – Present",
+                link:"https://www.ajaib.co.id",
                 title:"Backend Engineer",
+                institution:"PT Ajaib Sekuritas Asia",
+                desc:"Tech in use: Unix, Kafka, MySQL, RxJava, Spring, Python, Django git, etc"
+            },
+            {
+                period:"Sep 2020 – Aug 2021",
+                link:"https://www.tiket.com",
+                title:"Software Engineer II",
                 institution:"PT Global Tiket Network (Tiket.com)",
                 desc:"Tech in use: Bash, Kafka, MongoDB, MySQL, Java, RxJava, Spring, git, etc"
             },
