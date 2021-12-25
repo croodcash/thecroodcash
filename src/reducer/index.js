@@ -67,7 +67,7 @@ export function sendEmailData(resultData) {
 
 export const switchTheme=()=>(dispatch,getState)=>{
   const state = Object.assign({},getState());
-  console.log(state);
+  //console.log(state);
   const { bgColor,textColor,isLightMode } = state;
   state.bgColor = textColor;
   state.textColor = bgColor;
@@ -85,7 +85,7 @@ export const showNavbar=()=>(dispatch,getState)=>{
 export const showContent=(item)=>(dispatch,getState)=>{
   const state = Object.assign({},getState());
   state.active = item;
-  console.log(state);
+  //console.log(state);
   switch (item) {
     case 'education':
       state.contentDetail=about.education.detailSum;
@@ -105,7 +105,7 @@ export const showContent=(item)=>(dispatch,getState)=>{
 export const sendMessage=({name,email,message})=>(dispatch,getState)=>{
   const state = Object.assign({},getState());
   const re = /\S+@\S+\.\S+/;
-  console.log(name,email,message);
+  //console.log(name,email,message);
   if(name.length<3 || !re.test(String(email).toLowerCase()) || message.length<3){
     state.errorMessage='Invalid Name or Email or Message';
     return dispatch(sendEmailData(state));
@@ -115,7 +115,7 @@ export const sendMessage=({name,email,message})=>(dispatch,getState)=>{
     email,
     message
   }).then(response => {
-    console.log(response);
+    //console.log(response);
     if(response.data.response.id.length>3){
       state.errorMessage='Success Send Message! Thank you!'
     }else{
@@ -124,7 +124,7 @@ export const sendMessage=({name,email,message})=>(dispatch,getState)=>{
     dispatch(sendEmailData(state));
   })
   .catch(error => {
-    console.log(error);
+    //console.log(error);
     state.errorMessage='Fail to Send Message. Please kindly try again later'
     dispatch(sendEmailData(state));
   })

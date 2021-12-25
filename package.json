@@ -22,6 +22,7 @@
     "typed.js": "^2.0.12"
   },
   "scripts": {
+    "start-win": "set PORT=3333 && react-scripts start",
     "start": "PORT=3333 react-scripts start",
     "build": "react-scripts --max_old_space_size=4096 build",
     "test": "react-scripts test",

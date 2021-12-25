@@ -6,7 +6,7 @@ import { showNavbar } from '../../reducer';
 import ModeButton from '../utils/ModeButton';
 import SocialMedia from '../utils/SocialMedia';
 import logo from '../../asset/logosh.png';
-import { NAME, TITLE, COMPANY } from '../../static/data';
+import { NAME, TITLE, COMPANY,COMPANY_SITE } from '../../static/data';
 
 class Navbar extends Component{
 
@@ -24,7 +24,7 @@ class Navbar extends Component{
                     <Name>{NAME}</Name>
                     <Title>
                         {TITLE}
-                        <div><a href="https://www.tiket.com">{COMPANY}</a></div>
+                        <div><a href={COMPANY_SITE}>{COMPANY}</a></div>
                     </Title>
                 </Wrapper>
                 <Menu isNavbar={true} themeMode={this.props.themeMode}/>
@@ -121,7 +121,7 @@ const Text= styled.div`
     text-align: center;
     margin-top: 50%;
     @media screen and (max-width: ${props => props.theme.screens.sm}) {
-        margin-top: 40%;
+        margin-top: 35%;
     }
 `; 
 
