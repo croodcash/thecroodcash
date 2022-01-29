@@ -9,7 +9,7 @@ import me from '../../asset/me.jpg';
 class About extends Component{
     
     render(){
-        console.log(this.props)
+        //console.log(this.props)
         return(
             <Element name={routes.ABOUT.to}> 
                 <Container themeMode={this.props.themeMode}>
@@ -41,7 +41,7 @@ class About extends Component{
                                 </Detail>
                                 <Lists>
                                     {Object.values(this.props.themeMode.contentList).map(content => (
-                                        <List>
+                                        <List key={content.title}>
                                             <ContentWrap>
                                                 <Institute href={content.link} > 
                                                     {content.institution}
@@ -119,8 +119,8 @@ const ImageContainer= styled.div`
     border: 1em solid #38c172;
     @media screen and (max-width: ${props => props.theme.screens.sm}) {
         border: 0.5em solid #38c172;
-        width: 35%;
-        height: 55%;   
+        width: 40%;
+        height: 65%;   
     }
 `;
 const Photo= styled.img`
@@ -132,8 +132,8 @@ const Photo= styled.img`
     box-shadow: 0 0 1em 0 rgba(0, 0, 0, 0.5);
     @media screen and (max-width: ${props => props.theme.screens.sm}) {
         top: 30%;
-        width: 35%;
-        height: 55%;   
+        width: 40%;
+        height: 65%;   
     }
 `;  
 

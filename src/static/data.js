@@ -14,7 +14,7 @@ export const about = {
         " I am graduated with a Bachelor of Computer Science from Bina Nusantara University (PPTI BCA)."+
         " My world is around technology stuff and also have wide experience in the industry."+
         " I'm a logical person, love to solve problems, and will not hesitate learn new things to grow myself to be a better software engineer."+
-        " Currently, I'm working as a part of the technology team at tiket.com ",
+        " Currently, I'm working as a part of the technology team at Ajaib ",
         detailList:[]
     },
     education:{
