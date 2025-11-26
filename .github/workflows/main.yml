@@ -1,0 +1,41 @@
+name: Deploy React App to Firebase
+
+on:
+  # Trigger the workflow on pushes to the 'main' branch
+  push:
+    branches:
+      - main
+  # Allow manual trigger from the GitHub Actions tab
+  workflow_dispatch:
+
+jobs:
+  build_and_deploy:
+    runs-on: ubuntu-latest
+    
+    steps:
+      # Step 1: Check out the repository code
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      # Step 2: Set up Node.js environment
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20' # Use your preferred Node version
+
+      # Step 3: Install dependencies and build the React app
+      - name: Install Dependencies and Build
+        run: |
+          npm install
+          npm run build # Replace with your actual build command if different
+
+      # Step 4: Deploy to Firebase Hosting
+      - name: Deploy to Firebase
+        uses: FirebaseExtended/action-hosting-deploy@v0
+        with:
+          repoToken: ${{ secrets.GITHUB_TOKEN }} # Default token for checking out
+          firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_TOKEN }} # The secret you created
+          channelId: live # Deploys to the default (live) channel
+          projectId: YOUR_FIREBASE_PROJECT_ID # Replace with your Firebase Project ID
+          # Optional: Specify the target directory if your firebase.json is not in the root
+          # target: YOUR_TARGET_NAME
